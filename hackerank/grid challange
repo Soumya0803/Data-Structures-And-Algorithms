@@ -1,0 +1,12 @@
+for i in range(int(input())):
+    li = []
+    for j in range(int(input())):
+        li.append(list(input()))
+        li[j].sort()
+    tli = list(zip(*li))
+    for k in tli:
+        if sorted(k) != list(k):
+            print("NO")
+            break
+    else:
+        print("YES")
