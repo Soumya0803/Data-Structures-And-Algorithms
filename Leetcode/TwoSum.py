@@ -39,3 +39,29 @@ class Solution:
             for j in range (i+1,len(nums)):
                 if nums[i]+nums[j]==target:
                     return [i,j]
+"""
+Complexity Analysis
+
+Time complexity : O(n^2). For each element, we try to find its complement by looping through the rest of array which takes O(n)time. Therefore, the time complexity is O(n^2).
+
+Space complexity : O(1)
+"""
+                    
+"""
+Approch 2: One-pass Hash Table
+"""
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        myHash={}
+        for i,val in enumerate(nums):
+            if target-val in myHash:
+                return [myHash[target-val],i]
+            myHash[val]=i
+            
+"""
+Complexity Analysis:
+
+Time complexity : O(n). We traverse the list containing nn elements only once. Each look up in the table costs only O(1) time.
+
+Space complexity : O(n). The extra space required depends on the number of items stored in the hash table, which stores at most nn elements.
+"""
